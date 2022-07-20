@@ -1,0 +1,39 @@
+.MenuPage {
+    height: 100%;
+    padding-top: 10vh;
+
+  .LogoSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 5vh;
+
+    .Logo {
+      width: 10em;
+      height: 10em;
+      border: 2px solid #073B4C;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10em;
+      background-color: #f9f97149;
+      img {
+        height: 90%;
+      }
+    }
+  }
+  .MenuSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .MenuItemsSection {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

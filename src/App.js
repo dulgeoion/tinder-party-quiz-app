@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import { RecoilRoot } from "recoil";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MenuPage from "./containers/pages/MenuPage/MenuPage";
+import RandomPage from "./containers/pages/RandomPage/RandomPage";
+import OrederedPage from "./containers/pages/OrderedPage/OrederedPage";
+import ResultPage from "./containers/pages/ResultPage/ResultPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RecoilRoot>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MenuPage />}></Route>
+          <Route path="/random" element={<RandomPage />}></Route>
+          <Route path="/ordered" element={<OrederedPage />}></Route>
+          <Route path="/result" element={<ResultPage />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </RecoilRoot>
   );
 }
 
