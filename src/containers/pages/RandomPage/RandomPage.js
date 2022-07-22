@@ -8,7 +8,7 @@ import CardsDeck from "../../CardsDeck/CardsDeck";
 import styles from "./RandomPage.module.scss";
 
 export default function RandomPage() {
-  const deck = useMemo(() => shuffle(people.filter((_, i) => i < 20)), []);
+  const deck = useMemo(() => shuffle(people).filter((_, i) => i < 20), []);
   const setCards = useSetRecoilState(cardsAtom);
   const navigate = useNavigate();
 

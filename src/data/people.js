@@ -63,6 +63,7 @@ import sortBy from "lodash.sortby";
 
 const males = [
   {
+    top: true,
     id: 2,
     name: "Іван",
     age: 25,
@@ -74,6 +75,7 @@ const males = [
     picture: male1,
   },
   {
+    top: true,
     id: 4,
     name: "Василь",
     age: 16,
@@ -94,6 +96,7 @@ const males = [
   },
 
   {
+    top: true,
     id: 8,
     name: "Горіх",
     age: 25,
@@ -132,6 +135,7 @@ const males = [
     picture: male6,
   },
   {
+    top: true,
     id: 14,
     name: "Назарелло",
     age: 16,
@@ -181,6 +185,7 @@ const males = [
     picture: male11,
   },
   {
+    top: true,
     id: 24,
     name: "Ігор",
     age: 45,
@@ -204,6 +209,7 @@ const males = [
   },
   {
     id: 28,
+    top: true,
     name: "Федеріко",
     age: 26,
     advantage: ["11_Займаюся благодійністю"],
@@ -222,6 +228,7 @@ const males = [
   },
   {
     id: 32,
+    top: true,
     name: "Саня Кіпішний",
     age: 17,
     advantage: [
@@ -271,6 +278,7 @@ const males = [
     picture: male19,
   },
   {
+    top: true,
     id: 40,
     name: "Стасян",
     age: 20,
@@ -304,6 +312,7 @@ const males = [
     picture: male22,
   },
   {
+    top: true,
     id: 46,
     name: "Вітаха",
     age: 26,
@@ -318,6 +327,7 @@ const males = [
     picture: male23,
   },
   {
+    top: true,
     id: 48,
     name: "Сірьога",
     age: 43,
@@ -343,6 +353,7 @@ const males = [
 
 const females = [
   {
+    top: true,
     id: 1,
     name: "Валерія",
     age: 25,
@@ -351,6 +362,7 @@ const females = [
     picture: female1,
   },
   {
+    top: true,
     id: 3,
     name: "Інесса",
     age: 20,
@@ -364,6 +376,7 @@ const females = [
     picture: female2,
   },
   {
+    top: true,
     id: 5,
     name: "Анабель",
     age: 29,
@@ -395,6 +408,7 @@ const females = [
     picture: female5,
   },
   {
+    top: true,
     id: 11,
     name: "Ірка",
     age: 19,
@@ -414,6 +428,7 @@ const females = [
     picture: female7,
   },
   {
+    top: true,
     id: 15,
     name: "Вірка",
     age: 21,
@@ -439,6 +454,7 @@ const females = [
     picture: female9,
   },
   {
+    top: true,
     id: 19,
     name: "Машка",
     age: 24,
@@ -477,7 +493,10 @@ const females = [
     id: 25,
     name: "Христя",
     age: 18,
-    advantage: ["23_Можна сказати багата жона))", "15_У свої 18 вже маю 2 машини"],
+    advantage: [
+      "23_Можна сказати багата жона))",
+      "15_У свої 18 вже маю 2 машини",
+    ],
     disadvantage: [
       "34_Заробляю на трішки незаконній роботі",
       "31_Я така транжира, але мені це так подобається",
@@ -485,6 +504,7 @@ const females = [
     picture: female13,
   },
   {
+    top: true,
     id: 27,
     name: "Галя",
     age: 26,
@@ -508,8 +528,122 @@ const females = [
     ],
     picture: female15,
   },
+  {
+    top: true,
+    id: 31,
+    name: "Даяна",
+    age: 18,
+    advantage: [
+      "15_Студентка 4 курсу, відмінниця",
+      "29_Люблю займатися хенд-мейдом",
+    ],
+    disadvantage: ["30_Принципово не готую, для цього є заклади харчування"],
+    picture: female16,
+  },
+  {
+    id: 33,
+    name: "Василина",
+    age: 23,
+    advantage: ["37_Майстер манікюру", "29_Хобі малювання"],
+    disadvantage: ["30_Прибирання вдома - це не моє, у мене ж ноготочки"],
+    picture: female17,
+  },
+  {
+    top: true,
+    id: 35,
+    name: "Віолетта",
+    age: 33,
+    advantage: [
+      "11_Любляча мама 2 дітей",
+      "1_Встигаю і прибрати, і приготувати, і тд",
+    ],
+    disadvantage: ["39_Але третій шлюб, це тільки початок)"],
+    picture: female18,
+  },
+  {
+    top: true,
+    id: 37,
+    name: "Маріка",
+    age: 25,
+    advantage: [
+      "37_Повар-кондитер, дуже успішна",
+      "7_Маю три кондитерські у місті",
+    ],
+    disadvantage: [
+      "24_Не скидаю гроші на ЗСУ, бо у країни мають бути гроші на них і не вважаю, що мої 10 гривень якось їм допоможуть.",
+    ],
+    picture: female19,
+  },
+  {
+    id: 39,
+    name: "Оленка",
+    age: 26,
+    advantage: [
+      "8_Активно та регулярно займалась спортом, досягла чи малих успіхів",
+    ],
+    disadvantage: [
+      "13_Але рік тому залишила спорт і трішки піднабрала (вага 105 кг). Мої друзі та родичі кажуть, що мені варто скинути і зайнятись собою. Та мені здається, що зі мною все добре і мені так подобається",
+    ],
+    picture: female20,
+  },
+  {
+    id: 41,
+    name: "Іванка",
+    age: 24,
+    advantage: ["4_Гарна", "17_Розумна"],
+    disadvantage: [
+      "39_Безробітня",
+      "40_Я впевнена, що в мене немає мінусів, адже я ідеальна",
+    ],
+    picture: female21,
+  },
+  {
+    id: 43,
+    name: "Катя",
+    age: 19,
+    advantage: [
+      "16_Веду інстаграм сторінку, де маю приблизно 15000 підписників",
+      "15_Пропагандую український контент",
+    ],
+    disadvantage: ["34_Є хейт через несправедливість розіграшів"],
+    picture: female22,
+  },
+  {
+    id: 45,
+    name: "Зоряна",
+    age: 21,
+    advantage: [
+      "15_Закінчила університет з червоним дипломом.",
+      "37_Спеціаліст у своїй справі",
+    ],
+    disadvantage: [
+      "34_Любимо з подругами проводити час разом, але коли збираємось усі любимо оцінювати інших.",
+    ],
+    picture: female23,
+  },
+  {
+    id: 47,
+    name: "Вікторія",
+    age: 27,
+    advantage: ["15_Успішна, самодостатня жінка, феміністичних поглядів."],
+    disadvantage: [
+      "40_Вважаю, що кожна жінка може обійтись без чоловіка, а чоловіків обирають слабкі жінки.",
+    ],
+    picture: female24,
+  },
+  {
+    id: 49,
+    name: "Марина",
+    age: 22,
+    advantage: [
+      "7_Менеджер успішної компанії",
+      "17_Люблю читати книги",
+      "15_Вивчила три іноземні мови",
+    ],
+    disadvantage: ["40_Люблю все престижне, просте не для мене"],
+    picture: female25,
+  },
 ];
-
 
 const people = sortBy([...males, ...females], ["id"]);
 

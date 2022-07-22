@@ -7,7 +7,7 @@ import CardsDeck from "../../CardsDeck/CardsDeck";
 import styles from "./OrderedPage.module.scss";
 
 export default function OrederedPage() {
-  const deck = useMemo(() => people.filter((_, i) => i < 20), []);
+  const deck = useMemo(() => people.filter((item) => item.top ), []);
   const setCards = useSetRecoilState(cardsAtom);
   const navigate = useNavigate();
 

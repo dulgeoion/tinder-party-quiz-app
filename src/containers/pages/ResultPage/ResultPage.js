@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { mapTempersFromPeople } from "../../../data/tempers";
@@ -22,6 +22,10 @@ const Column = ({ tempers, title }) => (
 export default function ResultPage() {
   const [cards] = useRecoilState(cardsAtom);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (cards.likes.length === 0) navigate("/");
+  }, [cards, navigate]);
 
   const { likes, dislikes: compromises } = useMemo(
     () => mapTempersFromPeople(cards.likes),
