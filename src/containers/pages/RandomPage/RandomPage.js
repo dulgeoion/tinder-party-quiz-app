@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import people from "../../../data/people";
 import { cardsAtom } from "../../../recoil/atoms/cards-atom";
+import { track } from "../../../utils/ga";
 import { shuffle } from "../../../utils/random";
 import CardsDeck from "../../CardsDeck/CardsDeck";
 import styles from "./RandomPage.module.scss";
@@ -12,7 +13,10 @@ export default function RandomPage() {
   const setCards = useSetRecoilState(cardsAtom);
   const navigate = useNavigate();
 
-  const onFinish = useCallback(() => navigate("/result"), [navigate]);
+  const onFinish = useCallback(() => {
+    track("quiz_finished_random");
+    navigate("/result");
+  }, [navigate]);
 
   const handleLike = useCallback(
     (card) =>

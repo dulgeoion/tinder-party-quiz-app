@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../../assets/cross.png";
 import isntagram from "../../../assets/instagram.png";
+import { track } from "../../../utils/ga";
 import MenuItem from "./components/MenuItem/MenuItem";
 import styles from "./MenuPage.module.scss";
 
 export default function MenuPage() {
+  useEffect(() => {
+    track("pageview", { page: "/" });
+  }, []);
+
   const navigate = useNavigate();
   return (
     <div className={styles.MenuPage}>
@@ -20,19 +25,26 @@ export default function MenuPage() {
         <div className={styles.MenuItemsSection}>
           <MenuItem
             text="Лінійний"
-            onClick={() => navigate("/ordered")}
+            onClick={() => {
+              track("quiz_started_ordered");
+              navigate("/ordered");
+            }}
           ></MenuItem>
           <MenuItem
             text="Рандомний"
-            onClick={() => navigate("/random")}
+            onClick={() => {
+              track("quiz_started_random");
+              navigate("/random");
+            }}
           ></MenuItem>
         </div>
       </div>
 
       <img
-        onClick={() =>
-          (window.location.href = "https://www.instagram.com/grace.uzh/")
-        }
+        onClick={() => {
+          track("instagram_clicked", { page: "/" });
+          window.location.href = "https://www.instagram.com/grace.uzh/";
+        }}
         src={isntagram}
         className={styles.LogoInstagram}
         alt="Наш інстаграм"
