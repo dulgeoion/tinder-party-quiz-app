@@ -48,9 +48,11 @@ export const getTemperFromDescription = (desc) => {
   return tempers[temper];
 };
 
-export const mapTempersFromDesctiptions = (descriptions) => {
+export const mapTempersFromDesctiptions = (descriptions, avoidTempersMap) => {
   return descriptions.reduce((acc, description) => {
     const temper = getTemperFromDescription(description);
+    if (avoidTempersMap && avoidTempersMap[temper]) return acc; // temper already exists in another list, so we avoid it here
+
     if (acc[temper]) {
       acc[temper] = [...acc[temper], sanitizeDescription(description)];
     } else {
@@ -60,10 +62,13 @@ export const mapTempersFromDesctiptions = (descriptions) => {
   }, {});
 };
 
-export const mapTempersFromPeople = (people) => {
+export const mapTempersFromPeople = (people, avoidTempersMap) => {
   return people.reduce((acc, person) => {
-    let likes = mapTempersFromDesctiptions(person.advantage);
-    let dislikes = mapTempersFromDesctiptions(person.disadvantage);
+    let likes = mapTempersFromDesctiptions(person.advantage, avoidTempersMap);
+    let dislikes = mapTempersFromDesctiptions(
+      person.disadvantage,
+      avoidTempersMap
+    );
 
     if (acc.likes) {
       likes = Object.keys(likes).reduce((lAcc, l) => {

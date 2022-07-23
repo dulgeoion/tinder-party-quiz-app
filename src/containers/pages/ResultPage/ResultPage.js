@@ -5,26 +5,29 @@ import { mapTempersFromPeople } from "../../../data/tempers";
 import { cardsAtom } from "../../../recoil/atoms/cards-atom";
 import styles from "./ResultPage.module.scss";
 
-const Column = ({ tempers, title }) => (
-  <div className={styles.column}>
-    <h3>{title}</h3>
-    <ul>
-      {Object.keys(tempers).map((item, index) => (
-        <li key={index}>
-          {item}
-          <em> ({tempers[item].join(", ")})</em>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+const Column = ({ tempers = {}, title }) => {
+  const tempersArray = useMemo(() => Object.keys(tempers), [tempers]);
+  return tempersArray.length ? (
+    <div className={styles.column}>
+      <h3>{title}</h3>
+      <ul>
+        {tempersArray.map((item, index) => (
+          <li key={index}>
+            <strong>{item}</strong>
+            <em> ({tempers[item].join(", ")})</em>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ) : null;
+};
 
 export default function ResultPage() {
   const [cards] = useRecoilState(cardsAtom);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (cards.likes.length === 0) navigate("/");
+    if (!cards.likes.length) navigate("/");
   }, [cards, navigate]);
 
   const { likes, dislikes: compromises } = useMemo(
@@ -33,8 +36,8 @@ export default function ResultPage() {
   );
 
   const { dislikes } = useMemo(
-    () => mapTempersFromPeople(cards.dislikes),
-    [cards]
+    () => mapTempersFromPeople(cards.dislikes, compromises),
+    [cards, compromises]
   );
 
   return (
