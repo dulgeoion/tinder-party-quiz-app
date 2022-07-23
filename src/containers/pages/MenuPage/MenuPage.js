@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../../assets/cross.png";
+import isntagram from "../../../assets/instagram.png";
 import MenuItem from "./components/MenuItem/MenuItem";
 import styles from "./MenuPage.module.scss";
 
@@ -27,6 +28,15 @@ export default function MenuPage() {
           ></MenuItem>
         </div>
       </div>
+
+      <img
+        onClick={() =>
+          (window.location.href = "https://www.instagram.com/grace.uzh/")
+        }
+        src={isntagram}
+        className={styles.LogoInstagram}
+        alt="Наш інстаграм"
+      />
     </div>
   );
 }
